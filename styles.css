@@ -1,187 +1,218 @@
 /* General Styles */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #f4f4f9;
+    font-family: 'Roboto', sans-serif;
+    color: #e0e0e0;
+    background-color: #0a0a1f; /* Deep navy */
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00d4ff; /* Neon cyan */
 }
 
 /* Header */
 header {
-    background-color: #1a237e; /* Trusty blue */
-    color: white;
-    padding: 10px 20px;
+    background: linear-gradient(90deg, #0a0a1f, #1c1c3d);
+    padding: 15px 30px;
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
 
 nav a {
-    color: white;
+    color: #b0b0ff; /* Soft violet */
     text-decoration: none;
     font-size: 16px;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #ffd700; /* Shiny gold */
+    color: #00d4ff;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(to right, #1a237e, #3f51b5);
-    color: white;
+    background: linear-gradient(135deg, #1c1c3d 0%, #0a0a1f 100%);
     text-align: center;
-    padding: 100px 20px;
-    margin-top: 60px;
+    padding: 120px 30px;
+    margin-top: 70px;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.2), transparent);
+    z-index: 0;
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: 56px;
     margin: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .hero p {
     font-size: 20px;
-    margin: 20px 0;
+    max-width: 600px;
+    margin: 20px auto;
+    position: relative;
+    z-index: 1;
 }
 
 .cta-button {
-    background-color: #ffd700;
-    color: #1a237e;
-    padding: 12px 24px;
+    background-color: #00d4ff;
+    color: #0a0a1f;
+    padding: 14px 28px;
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    position: relative;
+    z-index: 1;
 }
 
 .cta-button:hover {
-    background-color: #ffca28;
+    background-color: #b0b0ff;
 }
 
-/* About Section */
-.about {
-    max-width: 800px;
-    margin: 40px auto;
+/* Mission Section */
+.mission {
+    max-width: 1000px;
+    margin: 60px auto;
     text-align: center;
+    padding: 0 30px;
 }
 
-.about h2 {
-    font-size: 36px;
-    color: #1a237e;
+.mission h2 {
+    font-size: 40px;
 }
 
-.about p {
+.mission p {
     font-size: 18px;
-    line-height: 1.6;
+    line-height: 1.7;
+    color: #b0b0ff;
 }
 
-/* Features Section */
-.features {
-    background-color: #fff;
-    padding: 40px 20px;
+/* Capabilities Section */
+.capabilities {
+    background: #12122b; /* Darker shade */
+    padding: 60px 30px;
     text-align: center;
 }
 
-.features h2 {
-    font-size: 36px;
-    color: #1a237e;
+.capabilities h2 {
+    font-size: 40px;
 }
 
-.feature-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 20px auto;
+.capability-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 30px auto;
 }
 
-.feature {
-    background-color: #f4f4f9;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
+.capability {
+    background: linear-gradient(145deg, #1c1c3d, #0a0a1f);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
 }
 
-.feature h3 {
+.capability:hover {
+    transform: translateY(-5px);
+}
+
+.capability h3 {
     font-size: 24px;
-    color: #1a237e;
 }
 
-.feature p {
+.capability p {
     font-size: 16px;
+    color: #e0e0e0;
 }
 
-/* Contact Section */
-.contact {
-    background-color: #1a237e;
-    color: white;
+/* Connect Section */
+.connect {
+    background: linear-gradient(90deg, #0a0a1f, #1c1c3d);
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 30px;
 }
 
-.contact h2 {
-    font-size: 36px;
+.connect h2 {
+    font-size: 40px;
 }
 
-.contact p {
+.connect p {
     font-size: 18px;
     margin: 20px 0;
+    color: #b0b0ff;
 }
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: white;
+    background: #0a0a1f;
+    color: #b0b0ff;
     text-align: center;
     padding: 20px;
     font-size: 14px;
 }
 
 footer a {
-    color: #ffd700;
+    color: #00d4ff;
     text-decoration: none;
 }
 
 footer a:hover {
-    color: #ffca28;
+    color: #b0b0ff;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 32px;
+        font-size: 36px;
     }
     .hero p {
         font-size: 16px;
     }
     nav ul {
-        flex-direction: column;
-        gap: 10px;
+        gap: 15px;
     }
-    .feature {
-        width: 100%;
+    .mission h2, .capabilities h2, .connect h2 {
+        font-size: 32px;
     }
 }

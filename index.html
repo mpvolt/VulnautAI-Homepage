@@ -3,67 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VulnautAI Inc. - Next-Gen Blockchain Security</title>
+    <title>VulnautAI Inc. - Secure Your Blockchain</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <!-- Example for integrating Tailwind CSS for styling -->
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <!-- AOS (Animate On Scroll) library for animations -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">VulnautAI Inc.</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#capabilities">Capabilities</a></li>
-                <li><a href="#connect">Connect</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <h1>Securing the Future of Blockchain</h1>
-        <p>VulnautAI leverages advanced AI to deliver unparalleled vulnerability detection for Solana smart contracts.</p>
-        <a href="#connect" class="cta-button">Request a Demo</a>
-    </section>
-
-    <!-- Mission Section -->
-    <section id="mission" class="mission">
-        <h2>Our Mission</h2>
-        <p>VulnautAI pioneers AI-driven security solutions, empowering blockchain developers to protect Solana ecosystems with precision and efficiency. Our technology ensures robust, scalable defense against vulnerabilities.</p>
-    </section>
-
-    <!-- Capabilities Section -->
-    <section id="capabilities" class="capabilities">
-        <h2>Core Capabilities</h2>
-        <div class="capability-grid">
-            <div class="capability">
-                <h3>High-Precision Detection</h3>
-                <p>Achieves 70-80% accuracy today, targeting 90%+—identifying critical vulnerabilities with unmatched reliability.</p>
-            </div>
-            <div class="capability">
-                <h3>Solana-Optimized Analysis</h3>
-                <p>Engineered for Solana’s Rust-based contracts, detecting issues like signer flaws and overflow risks.</p>
-            </div>
-            <div class="capability">
-                <h3>Scalable AI Architecture</h3>
-                <p>Powered by a 33B-parameter model, optimized for rapid scans and future blockchain ecosystems.</p>
-            </div>
+    <header class="bg-gradient-to-r from-blue-500 to-purple-500 text-white py-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">VulnautAI Inc.</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:text-purple-300">Home</a></li>
+                    <li><a href="#about" class="hover:text-purple-300">About</a></li>
+                    <li><a href="#services" class="hover:text-purple-300">Services</a></li>
+                    <li><a href="#contact" class="hover:text-purple-300">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </section>
-
-    <!-- Connect Section -->
-    <section id="connect" class="connect">
-        <h2>Partner with Us</h2>
-        <p>Ready to enhance your blockchain security? Connect with VulnautAI to explore our solutions.</p>
-        <a href="mailto:matt@vulnautai.com" class="cta-button">Contact Us</a>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 VulnautAI Inc. All Rights Reserved.</p>
-        <p><a href="mailto:matt@vulnautai.com">matt@vulnautai.com</a></p>
+    </header>
+    <main>
+        <section id="hero" class="text-center py-20 bg-fixed bg-cover" style="background-image: url('hero-bg.jpg');">
+            <div class="container mx-auto">
+                <h2 class="text-5xl font-bold text-white" data-aos="fade-up">Secure Your Blockchain</h2>
+                <p class="text-white mt-4" data-aos="fade-up" data-aos-delay="200">Leverage cutting-edge AI to identify and fix vulnerabilities.</p>
+                <a href="#contact" class="mt-6 inline-block bg-purple-600 text-white py-3 px-6 rounded hover:bg-purple-700" data-aos="fade-up" data-aos-delay="400">Get Started</a>
+            </div>
+        </section>
+        <!-- Additional sections like "About", "Services", "Contact Form" go here -->
+    </main>
+    <footer class="bg-gradient-to-l from-blue-500 to-purple-500 text-white py-4 text-center">
+        <p>&copy; 2023 VulnautAI Inc. All Rights Reserved.</p>
     </footer>
+
+    <!-- AOS (Animate On Scroll) Library for scroll animations -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 </body>
 </html>

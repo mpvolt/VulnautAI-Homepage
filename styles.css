@@ -1,13 +1,76 @@
-/* Add minimal styling if not using Tailwind CSS */
-body, h1, h2, p {
+/* General reset */
+body, h1, p, ul {
     margin: 0;
     padding: 0;
+}
+
+body {
     font-family: Arial, sans-serif;
-  }
-  
-  .container {
-    width: 90%;
-    margin: auto;
-  }
-  
-  /* Tailwind Utility Classes mostly cover the styling */
+    text-align: center;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: #333;
+    color: #fff;
+}
+
+.logo {
+    height: 50px;
+    cursor: pointer;
+}
+
+.nav_links ul, .nav_links li {
+    list-style: none;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links a {
+    transition: all 0.3s ease 0s;
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav_links a:hover {
+    color: #0088a9;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: #0088a9;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #005670;
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('blockchain-background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}

@@ -17,6 +17,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#mission">Mission</a></li>
                 <li><a href="#capabilities">Capabilities</a></li>
+                <li><a href="#whitelist">Whitelist</a></li>
                 <li><a href="#connect">Connect</a></li>
             </ul>
         </nav>
@@ -54,6 +55,36 @@
         </div>
     </section>
 
+    <!-- Whitelist Signup Section -->
+    <section id="whitelist" class="whitelist">
+        <h2>Get Early Access: Join the Whitelist</h2>
+        <p>Sign up to our whitelist for exclusive early access to VulnautAI’s platform updates, beta features, and more!</p>
+        <form 
+          action="https://docs.google.com/forms/d/1ZzXvONjDc6UuIdNzsk_VhUL-uqfkQpL7TNCrUVBEZjs/formResponse" 
+          method="POST" 
+          target="hidden_iframe" 
+          onsubmit="showThankYou()">
+            <input 
+              type="email" 
+              name="entry.916841319" 
+              placeholder="Enter your email address" 
+              required>
+            <button type="submit" class="cta-button">Join Whitelist</button>
+        </form>
+        <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+        <div id="whitelist-success" style="display:none; color: #25b45b; margin-top: 15px;">
+            Thank you for signing up! We’ll be in touch soon.
+        </div>
+    </section>
+    <script>
+    function showThankYou() {
+        setTimeout(function() {
+            document.querySelector('form[action^="https://docs.google.com/forms"]').style.display = 'none';
+            document.getElementById('whitelist-success').style.display = 'block';
+        }, 250); // delay for smoothest UX
+    }
+    </script>
+
     <!-- Connect Section -->
     <section id="connect" class="connect">
         <h2>Partner with Us</h2>
@@ -66,5 +97,6 @@
         <p>&copy; 2025 VulnautAI Inc. All Rights Reserved.</p>
         <p><a href="mailto:info@vulnautai.com">info@vulnautai.com</a></p>
     </footer>
+
 </body>
 </html>

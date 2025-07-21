@@ -216,3 +216,96 @@ footer a:hover {
         font-size: 32px;
     }
 }
+
+/* Whitelist Section */
+.whitelist {
+    background: linear-gradient(120deg, #151539 55%, #00d4ff10 100%);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0,212,255,0.13);
+    max-width: 500px;
+    margin: 60px auto 50px auto;
+    padding: 48px 32px 36px 32px;
+    text-align: center;
+    position: relative;
+    transition: box-shadow 0.3s;
+    border: 1px solid #1c1c3d;
+}
+
+.whitelist h2 {
+    font-size: 32px;
+    margin-bottom: 18px;
+    color: #00d4ff;
+}
+
+.whitelist p {
+    color: #b0b0ff;
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.whitelist form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.whitelist input[type="email"] {
+    font-size: 18px;
+    background: #191942;
+    border: 2px solid #00d4ff99;
+    border-radius: 999px;
+    padding: 13px 26px;
+    color: #e0e0e0;
+    outline: none;
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.whitelist input[type="email"]:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 5px #00d4ff44;
+}
+
+.whitelist .cta-button {
+    background: linear-gradient(90deg, #00d4ff 60%, #b0b0ff 100%);
+    color: #0a0a1f;
+    font-size: 18px;
+    padding: 13px 30px;
+    border: none;
+    border-radius: 40px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 3px 12px 0 rgba(0,212,255,0.11);
+    transition: background 0.3s, color 0.3s;
+}
+
+.whitelist .cta-button:hover {
+    background: linear-gradient(90deg, #b0b0ff 60%, #00d4ff 100%);
+    color: #10104A;
+}
+
+#whitelist-success {
+    font-size: 18px;
+    margin-top: 22px;
+    color: #25ffb4;
+    background: #122c23;
+    padding: 14px 0;
+    border-radius: 10px;
+    border: 1.5px solid #25b45b33;
+    letter-spacing: 0.01em;
+}
+
+@media (max-width: 600px) {
+    .whitelist {
+        padding: 28px 8vw 26px 8vw;
+        max-width: 98vw;
+    }
+    .whitelist input[type="email"]  {
+        font-size: 16px;
+        padding: 11px 14px;
+    }
+}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VulnautAI benchmark results, EVMBench reports, and public audit comparison scores.">
+  <title>Benchmarks - VulnautAI</title>
+  <meta name="theme-color" content="#091014">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VulnautAI">
+  <meta property="og:title" content="VulnautAI — EVMBench Detection Rate Comparison">
+  <meta property="og:description" content="Vulnerability detection rate on the EVMBench dataset. Vulnaut leads the public audit comparison at 83.0%.">
+  <meta property="og:url" content="https://vulnautai.com/benchmarks.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VulnautAI — EVMBench Detection Rate Comparison">
+  <meta name="twitter:description" content="Vulnaut leads the public audit comparison at 83.0%.">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="comparison-page">
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="VulnautAI home">
+        <img class="brand-mark" src="logo-mark.png" alt="" aria-hidden="true">
+        <span>VulnautAI</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#platform">Platform</a>
+        <a href="index.html#workflow">Workflow</a>
+        <a href="benchmarks.html">Benchmarks</a>
+        <a href="index.html#security">Security</a>
+      </div>
+      <a class="nav-cta" href="https://calendly.com/matt-vulnautai/30min">Book demo</a>
+    </nav>
+  </header>
+
+  <main class="comparison-main">
+    <section class="comparison-intro">
+      <div data-reveal>
+        <p class="comparison-kicker">EVMBench public audit comparison</p>
+        <h1>Detection Rate Comparison</h1>
+        <p>Vulnerability detection rate (%) on the EVMBench dataset. Higher is better.</p>
+      </div>
+      <div class="report-links" id="reports" data-reveal aria-label="Benchmark source links">
+        <a href="https://www.notion.so/VulnautAI-Score-on-EVMBench-May-2026-36dcd0d11463803a98b4fb45fc213300">May 2026</a>
+        <a href="https://www.notion.so/VulnautAI-Score-on-EVMBench-April-2026-140cd0d114638326b743819d1d760440">April 2026</a>
+        <a href="https://www.notion.so/Vulnaut-Public-Audit-Comparison-35acd0d1146380d482d7ef9dad1f2817">Public audit comparison</a>
+      </div>
+    </section>
+
+    <section class="comparison-summary" aria-label="Benchmark summary">
+      <div>
+        <span>Lead score</span>
+        <strong>83.0%</strong>
+      </div>
+      <div>
+        <span>Gap to next</span>
+        <strong>+16.0</strong>
+      </div>
+      <div>
+        <span>Systems compared</span>
+        <strong>16</strong>
+      </div>
+    </section>
+
+    <section id="comparison" class="detection-board" aria-label="Detection rate comparison scores">
+      <article class="detection-row leader" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">V</span>
+          <div>
+            <strong>Vulnaut</strong>
+            <small>AuditAgent <em>Agent</em></small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 83%"></i></div>
+        <strong class="score">83.0%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">N</span>
+          <div>
+            <strong>Kai <em>Agent</em></strong>
+            <small>Nethermind Security</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 67%"></i></div>
+        <strong class="score">67.0%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">D</span>
+          <div>
+            <strong>Guardix <em>Agent</em></strong>
+            <small>Dria</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 64.2%"></i></div>
+        <strong class="score">64.2%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">G</span>
+          <div>
+            <strong>Guardix <em>Agent</em></strong>
+            <small>Guardix</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 59.8%"></i></div>
+        <strong class="score">59.8%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">A</span>
+          <div>
+            <strong>Claude Opus 4.6</strong>
+            <small>Anthropic</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 45.6%"></i></div>
+        <strong class="score">45.6%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">O</span>
+          <div>
+            <strong>GPT-5.3-Codex</strong>
+            <small>xhigh reasoning</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 39.2%"></i></div>
+        <strong class="score">39.2%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">O</span>
+          <div>
+            <strong>GPT-5.2</strong>
+            <small>xhigh reasoning</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 39.2%"></i></div>
+        <strong class="score">39.2%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">A</span>
+          <div>
+            <strong>Claude Opus 4.5</strong>
+            <small>Anthropic</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 36.1%"></i></div>
+        <strong class="score">36.1%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">O</span>
+          <div>
+            <strong>GPT-5.3-Codex</strong>
+            <small>high reasoning</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 34.2%"></i></div>
+        <strong class="score">34.2%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">O</span>
+          <div>
+            <strong>OC-GPT-5.2</strong>
+            <small>OpenAI</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 30%"></i></div>
+        <strong class="score">30.0%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">O</span>
+          <div>
+            <strong>GPT-5.2</strong>
+            <small>high reasoning</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 29.7%"></i></div>
+        <strong class="score">29.7%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">O</span>
+          <div>
+            <strong>GPT-5.2</strong>
+            <small>medium reasoning</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 29.7%"></i></div>
+        <strong class="score">29.7%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">O</span>
+          <div>
+            <strong>GPT-5.3-Codex</strong>
+            <small>medium reasoning</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 26.9%"></i></div>
+        <strong class="score">26.9%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">O</span>
+          <div>
+            <strong>GPT-5</strong>
+            <small>OpenAI</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 23.3%"></i></div>
+        <strong class="score">23.3%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">O</span>
+          <div>
+            <strong>GPT-5.2</strong>
+            <small>low reasoning</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 22.2%"></i></div>
+        <strong class="score">22.2%</strong>
+      </article>
+
+      <article class="detection-row" data-reveal>
+        <div class="competitor">
+          <span class="competitor-mark">G</span>
+          <div>
+            <strong>Gemini 3 Pro</strong>
+            <small>Google</small>
+          </div>
+        </div>
+        <div class="detection-track" aria-hidden="true"><i style="--value: 20.8%"></i></div>
+        <strong class="score">20.8%</strong>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer comparison-footer">
+    <div class="section-inner footer-inner">
+      <p>&copy; 2026 VulnautAI Inc.</p>
+      <div>
+        <a href="mailto:matt@vulnautai.com">matt@vulnautai.com</a>
+        <a href="index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+  <script src="app.js" defer></script>
+</body>
+</html>

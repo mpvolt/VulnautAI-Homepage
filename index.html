@@ -1,639 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VulnautAI Inc. - Enterprise AI Models for Web3 Security Firms</title>
-    <link rel="icon" type="image/png" href="favicon.png"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #000;
-            color: #fff;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        /* Animated background */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(ellipse at center, 
-                rgba(147, 51, 234, 0.15) 0%, 
-                rgba(59, 130, 246, 0.08) 35%, 
-                transparent 70%),
-                linear-gradient(135deg, #000 0%, #0a0a1f 50%, #000 100%);
-        }
-
-        .floating-orbs {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(1px);
-            animation: float 8s infinite ease-in-out;
-        }
-
-        .orb:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(147, 51, 234, 0.3), transparent);
-            top: 20%;
-            left: -10%;
-            animation-delay: 0s;
-        }
-
-        .orb:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.25), transparent);
-            top: 60%;
-            right: -5%;
-            animation-delay: 2s;
-        }
-
-        .orb:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.2), transparent);
-            top: 80%;
-            left: 30%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-20px) rotate(90deg); }
-            50% { transform: translateY(-10px) rotate(180deg); }
-            75% { transform: translateY(-15px) rotate(270deg); }
-        }
-
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #9333ea, #3b82f6);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #fff;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff 0%, #9333ea 50%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            from { filter: drop-shadow(0 0 20px rgba(147, 51, 234, 0.5)); }
-            to { filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.8)); }
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(147, 51, 234, 0.3);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(147, 51, 234, 0.4);
-        }
-
-        /* Sections */
-        .section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, #fff 0%, #9333ea 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-
-        /* Trust points */
-        .trust-points {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .trust-point {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .trust-point::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, #9333ea, #3b82f6, #ec4899);
-        }
-
-        .trust-point:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 40px rgba(147, 51, 234, 0.2);
-        }
-
-        .trust-point h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .trust-point p {
-            color: rgba(255, 255, 255, 0.7);
-            text-align: left;
-        }
-
-        /* Services grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: linear-gradient(135deg, 
-                rgba(147, 51, 234, 0.1) 0%, 
-                rgba(59, 130, 246, 0.05) 100%);
-            backdrop-filter: blur(20px);
-            padding: 2.5rem;
-            border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(147, 51, 234, 0.1), transparent 70%);
-            transition: all 0.4s ease;
-            z-index: -1;
-        }
-
-        .service-card:hover::before {
-            top: -60%;
-            left: -60%;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(147, 51, 234, 0.3);
-            box-shadow: 0 25px 50px rgba(147, 51, 234, 0.2);
-        }
-
-        .service-card h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .service-card p {
-            color: rgba(255, 255, 255, 0.7);
-            text-align: left;
-            font-size: 1rem;
-        }
-
-        /* Form section */
-        .form-section {
-            background: linear-gradient(135deg, 
-                rgba(147, 51, 234, 0.1) 0%, 
-                rgba(59, 130, 246, 0.05) 100%);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 3rem;
-            margin: 3rem 0;
-            text-align: center;
-        }
-
-        .form-section form {
-            max-width: 400px;
-            margin: 2rem auto;
-        }
-
-        .form-section input {
-            width: 100%;
-            padding: 1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            color: white;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-section input:focus {
-            outline: none;
-            border-color: #9333ea;
-            background: rgba(255, 255, 255, 0.08);
-            box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
-        }
-
-        .form-section input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .testimonial {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            border-left: 4px solid #9333ea;
-            margin: 3rem 0;
-            font-style: italic;
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(20px);
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        footer a {
-            color: #9333ea;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #3b82f6;
-        }
-
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            nav {
-                padding: 1rem;
-            }
-            
-            nav ul {
-                gap: 1rem;
-            }
-            
-            .hero {
-                padding: 1rem;
-            }
-            
-            .section {
-                padding: 3rem 1rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .trust-points {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #000;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #9333ea, #3b82f6);
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(135deg, #a855f7, #60a5fa);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VulnautAI builds private AI systems for smart contract security teams, combining isolated model deployments with measurable audit performance.">
+  <title>VulnautAI - Private AI for Web3 Security</title>
+  <meta name="theme-color" content="#07090b">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VulnautAI">
+  <meta property="og:title" content="VulnautAI — Private AI for Web3 Security">
+  <meta property="og:description" content="Isolated AI systems for smart contract auditors: vetted vulnerability knowledge, your methodology, and deployment where client data stays under your control.">
+  <meta property="og:image" content="assets/security-workbench-hero.png">
+  <meta property="og:url" content="https://vulnautai.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VulnautAI — Private AI for Web3 Security">
+  <meta name="twitter:description" content="Audit intelligence that works inside your security practice.">
+  <meta name="twitter:image" content="assets/security-workbench-hero.png">
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="bg-animation">
-        <div class="floating-orbs">
-            <div class="orb"></div>
-            <div class="orb"></div>
-            <div class="orb"></div>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="VulnautAI home">
+        <img class="brand-mark" src="logo-mark.png" alt="" aria-hidden="true">
+        <span>VulnautAI</span>
+      </a>
+      <div class="nav-links">
+        <a href="#platform">Platform</a>
+        <a href="#workflow">Workflow</a>
+        <a href="benchmarks.html">Benchmarks</a>
+        <a href="#security">Security</a>
+      </div>
+      <a class="nav-cta" href="https://calendly.com/matt-vulnautai/30min">Book demo</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-band">
+      <canvas class="hero-net" aria-hidden="true"></canvas>
+      <div class="section-inner hero-grid">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow">Private AI for smart contract security teams</p>
+          <h1>Audit intelligence that works inside your security practice.</h1>
+          <p class="hero-lede">VulnautAI builds isolated AI systems for Web3 auditors: trained on vetted vulnerability knowledge, adapted to your methodology, and deployed where your client data stays under your control.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://calendly.com/matt-vulnautai/30min">Schedule private demo</a>
+            <a class="button button-secondary" href="benchmarks.html">View benchmarks</a>
+          </div>
+          <div class="signal-rail" aria-label="Audit signal flow">
+            <span>Context enriched</span>
+            <span>Paths ranked</span>
+            <span>Findings verified</span>
+            <span>Report ready</span>
+          </div>
+          <dl class="hero-metrics" aria-label="VulnautAI highlights">
+            <div>
+              <dt>Private</dt>
+              <dd>Client-isolated models</dd>
+            </div>
+            <div>
+              <dt>EVM</dt>
+              <dd>Audit-focused reasoning</dd>
+            </div>
+          </dl>
         </div>
+        <div class="hero-visual" data-reveal data-tilt aria-label="AI security audit workbench preview">
+          <img src="assets/security-workbench-hero.png" alt="Security audit dashboard showing code review panes, vulnerability traces, and benchmark cards">
+          <div class="hero-visual-caption">
+            <span>Finding triage</span>
+            <strong>ranked by exploit path confidence</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-band product-proof-band">
+      <div class="section-inner product-proof">
+        <div class="product-proof-copy" data-reveal>
+          <p class="eyebrow">The tool in practice</p>
+          <h2>Review ranked findings, pipeline stages, and evidence in one audit workspace.</h2>
+          <p class="section-intro">VulnautAI presents confirmed findings, inconclusive cases, rejected candidates, diagrams, deep dives, and PoC test work in a reviewer-friendly interface built for security teams.</p>
+        </div>
+        <figure class="product-shot" data-reveal data-tilt>
+          <img src="assets/vulnaut-audit-ui.png" alt="VulnautAI security audit interface showing pipeline stages, confirmed findings, and export controls">
+        </figure>
+      </div>
+    </section>
+
+    <section id="platform" class="section-band">
+      <div class="section-inner split-section">
+        <div data-reveal>
+          <p class="eyebrow">Built for auditors, not generic chat</p>
+          <h2>From vulnerability signal to review-ready evidence.</h2>
+        </div>
+        <p class="section-intro" data-reveal>The platform is designed around how security firms actually work: private client context, repeatable methodology, explainable finding evidence, and measurable model performance.</p>
+      </div>
+
+      <div class="section-inner feature-grid">
+        <article class="feature-card" data-reveal>
+          <span class="feature-kicker">01</span>
+          <h3>Private model rooms</h3>
+          <p>Dedicated environments for each firm keep methodology, audit reports, and client material isolated throughout tuning, evaluation, and deployment.</p>
+        </article>
+        <article class="feature-card" data-reveal>
+          <span class="feature-kicker">02</span>
+          <h3>Evidence-first findings</h3>
+          <p>Outputs are structured around exploit path, affected code, impact, assumptions, and remediation notes so auditors can review instead of rewrite.</p>
+        </article>
+        <article class="feature-card" data-reveal>
+          <span class="feature-kicker">03</span>
+          <h3>Benchmark ledger</h3>
+          <p>Model releases are compared against public EVM audit tasks and peer systems so performance claims stay tied to visible measurements.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="workflow" class="section-band band-muted">
+      <div class="section-inner workflow-layout">
+        <div class="workflow-copy" data-reveal>
+          <p class="eyebrow">A practical deployment path</p>
+          <h2>Ship a private audit assistant without changing your review culture.</h2>
+          <p class="section-intro">VulnautAI can start as a contained evaluation, then expand into internal tooling once your team trusts the output quality and governance model.</p>
+        </div>
+        <ol class="process-list">
+          <li data-reveal>
+            <span>1</span>
+            <div>
+              <h3>Baseline evaluation</h3>
+              <p>Run representative contracts and historical findings through the foundation model to establish precision, recall, and reviewer effort.</p>
+            </div>
+          </li>
+          <li data-reveal>
+            <span>2</span>
+            <div>
+              <h3>Confidential adaptation</h3>
+              <p>Fine-tune or retrieve against your approved reports, templates, and methodology docs in a dedicated environment.</p>
+            </div>
+          </li>
+          <li data-reveal>
+            <span>3</span>
+            <div>
+              <h3>Controlled rollout</h3>
+              <p>Deploy through API, internal UI, IDE workflow, or private cloud with access controls, logging, and review gates.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section-band">
+      <div class="section-inner benchmark-teaser" data-reveal>
+        <div>
+          <p class="eyebrow">Latest public comparison</p>
+          <h2>Vulnaut leads the listed EVMBench audit comparison at 83%.</h2>
+          <p class="section-intro">See the full comparison, release notes, and supporting benchmark links on the new benchmarks page.</p>
+        </div>
+        <div class="mini-bars" aria-label="Top benchmark scores">
+          <div class="mini-bar">
+            <span>Vulnaut</span>
+            <strong>83.0%</strong>
+            <i style="--value: 83%"></i>
+          </div>
+          <div class="mini-bar">
+            <span>Nethermind AuditAgent</span>
+            <strong>67.0%</strong>
+            <i style="--value: 67%"></i>
+          </div>
+          <div class="mini-bar">
+            <span>Guardix</span>
+            <strong>64.2%</strong>
+            <i style="--value: 64.2%"></i>
+          </div>
+          <div class="mini-bar">
+            <span>Claude Opus 4.6</span>
+            <strong>45.6%</strong>
+            <i style="--value: 45.6%"></i>
+          </div>
+        </div>
+        <a class="button button-primary" href="benchmarks.html">Open benchmark report</a>
+      </div>
+    </section>
+
+    <section id="security" class="section-band band-muted">
+      <div class="section-inner security-grid">
+        <div data-reveal>
+          <p class="eyebrow">Security posture</p>
+          <h2>Designed for confidential audit work.</h2>
+          <p class="section-intro">Security firms carry client source code, embargoed findings, and proprietary review methods. VulnautAI treats that context as the product boundary.</p>
+        </div>
+        <div class="security-points">
+          <article data-reveal>
+            <h3>Data separation</h3>
+            <p>Client material is scoped to dedicated projects and kept out of shared training flows unless explicitly approved.</p>
+          </article>
+          <article data-reveal>
+            <h3>Deployment control</h3>
+            <p>Support for private cloud or firm-controlled environments keeps access, logs, and retention aligned with internal policy.</p>
+          </article>
+          <article data-reveal>
+            <h3>Reviewer accountability</h3>
+            <p>Findings stay traceable to code paths, assumptions, and model outputs so senior auditors can approve with context.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-band contact-band">
+      <div class="section-inner contact-panel" data-reveal>
+        <div>
+          <p class="eyebrow">Get started</p>
+          <h2>Evaluate VulnautAI against the contracts your team actually audits.</h2>
+          <p>Send a confidential inquiry or book a short demo to discuss private deployment, benchmark methodology, and integration options.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:matt@vulnautai.com">Email VulnautAI</a>
+          <a class="button button-secondary" href="https://calendly.com/matt-vulnautai/30min">Book demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="section-inner footer-inner">
+      <p>&copy; 2026 VulnautAI Inc.</p>
+      <div>
+        <a href="mailto:matt@vulnautai.com">matt@vulnautai.com</a>
+        <a href="benchmarks.html">Benchmarks</a>
+      </div>
     </div>
-
-    <!-- Header -->
-    <header>
-        <nav>
-            <div class="logo">VulnautAI Inc.</div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#approach">Our Approach</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#security">Privacy & Security</a></li>
-                <li><a href="#connect">Get Started</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Private AI Models for Web3 Security Firms</h1>
-            <p>Deploy your own custom AI assistant, trained exclusively on your audit methodologies and findings. VulnautAI builds isolated, proprietary models that preserve your confidentiality agreements while amplifying your team's expertise across every engagement.</p>
-            <a href="https://calendly.com/matt-vulnautai/30min" class="cta-button">Schedule Private Demo</a>
-        </div>
-    </section>
-
-    <!-- Approach Section -->
-    <section id="approach" class="section">
-        <h2>Your Data Stays Yours. Your Model Stays Private.</h2>
-        <p>Every VulnautAI deployment creates a completely isolated AI model trained exclusively on your firm's proprietary data. We begin with our battle-tested foundation model—trained on 200,000+ publicly disclosed vulnerabilities—then fine-tune it using only your internal audit reports, code reviews, and methodology documents. The result is an AI assistant that understands your unique approach, maintains your client confidentiality, and amplifies your team's institutional knowledge.</p>
-        
-        <div class="trust-points">
-            <div class="trust-point">
-                <h3>🔒 Zero Data Mixing</h3>
-                <p>Your training data never combines with other clients. Each model is architecturally isolated and trained in dedicated environments.</p>
-            </div>
-            <div class="trust-point">
-                <h3>🏢 Your Infrastructure, Your Control</h3>
-                <p>Models can be deployed on your premises, in your cloud environment, or in isolated VPC instances that you control.</p>
-            </div>
-            <div class="trust-point">
-                <h3>📋 Audit Trail & Compliance</h3>
-                <p>Complete logs of data handling, model training, and deployment processes. SOC2 Type II certified with audit documentation available.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section">
-        <h2>End-to-End Custom Model Development</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Foundation Model Access</h3>
-                <p>Start with our pre-trained model covering 200,000+ smart contract vulnerabilities across Ethereum, Solana, Polygon, and emerging chains—all from public disclosures and CVE databases.</p>
-            </div>
-            <div class="service-card">
-                <h3>Confidential Fine-Tuning</h3>
-                <p>Your historical audit reports, internal findings, and methodology documents train your private model—processed in isolated environments with strict data handling protocols.</p>
-            </div>
-            <div class="service-card">
-                <h3>Private Deployment Options</h3>
-                <p>Deploy on your infrastructure, in dedicated cloud instances, or air-gapped environments. Full administrative control over model access and usage logging.</p>
-            </div>
-            <div class="service-card">
-                <h3>Integration & Workflow</h3>
-                <p>Custom APIs, IDE plugins, and workflow integrations built to your specifications. Seamless embedding into existing audit processes without disrupting established procedures.</p>
-            </div>
-            <div class="service-card">
-                <h3>Ongoing Model Evolution</h3>
-                <p>Regular updates using your new audit findings and emerging vulnerability patterns. Your model continuously learns from your growing expertise while maintaining strict data isolation.</p>
-            </div>
-            <div class="service-card">
-                <h3>24/7 Technical Support</h3>
-                <p>Dedicated engineering support for model maintenance, infrastructure management, and custom feature development. Direct access to our technical team when you need it.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Security Section -->
-    <section id="security" class="section">
-        <div class="form-section">
-            <h2>Enterprise Security & Confidentiality</h2>
-            <div class="trust-points">
-                <div class="trust-point">
-                    <h3>Data Isolation Guarantees</h3>
-                    <p>Your training data is processed in dedicated, ephemeral environments that are destroyed after model training. No persistent storage of client-sensitive information.</p>
-                </div>
-                <div class="trust-point">
-                    <h3>NDA & Legal Protections</h3>
-                    <p>Comprehensive confidentiality agreements covering all aspects of your data, methodologies, and client information. Legal frameworks designed for audit firm requirements.</p>
-                </div>
-                <div class="trust-point">
-                    <h3>Compliance Documentation</h3>
-                    <p>Full audit trails, compliance certifications, and detailed documentation of data handling processes for your regulatory and client reporting requirements.</p>
-                </div>
-            </div>
-            
-            <p style="margin-top: 3rem; font-weight: 500; font-size: 1.1rem;">
-                Ready to explore how a private AI model can enhance your audit capabilities while maintaining the highest confidentiality standards?
-            </p>
-            
-            <form 
-              action="https://docs.google.com/forms/d/1ZzXvONjDc6UuIdNzsk_VhUL-uqfkQpL7TNCrUVBEZjs/formResponse" 
-              method="POST" 
-              target="hidden_iframe" 
-              onsubmit="showThankYou()">
-                <input 
-                  type="email" 
-                  name="entry.916841319" 
-                  placeholder="Enter your business email for confidential consultation" 
-                  required>
-                <button type="submit" class="cta-button">Request Confidential Consultation</button>
-            </form>
-            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-            <div id="whitelist-success" style="display:none; color: #25b45b; margin-top: 15px; font-weight: 600;">
-                Thank you. A senior team member will contact you within 24 hours to discuss your requirements under NDA.
-            </div>
-        </div>
-    </section>
-
-    <script>
-    function showThankYou() {
-        setTimeout(function() {
-            document.querySelector('form[action^="https://docs.google.com/forms"]').style.display = 'none';
-            document.getElementById('whitelist-success').style.display = 'block';
-        }, 250);
-    }
-    </script>
-
-    <!-- Connect Section -->
-    <section id="connect" class="section">
-        <h2>Trusted by Leading Security Firms</h2>
-        <p>Top-tier Web3 security firms rely on VulnautAI to build custom AI models that preserve confidentiality while accelerating audit capabilities. From boutique specialists to global security companies, we provide the infrastructure, expertise, and ironclad data protection your practice demands.</p>
-        
-        <div class="testimonial">
-            <p style="margin: 0; font-size: 1.1rem; color: rgba(255, 255, 255, 0.8);">
-                "VulnautAI built us a private model trained on five years of our audit reports. It understands our methodology better than junior auditors and has cut our initial review time by 40% while maintaining the same quality standards."
-            </p>
-            <p style="margin: 15px 0 0 0; font-weight: 600; color: #9333ea; font-style: normal;">
-                — Senior Partner, Leading DeFi Security Firm
-            </p>
-        </div>
-        
-        <div style="text-align: center;">
-            <a href="mailto:matt@vulnautai.com" class="cta-button">Discuss Your Requirements</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 VulnautAI Inc. All Rights Reserved. | SOC2 Type II Certified | <a href="#">Privacy Policy</a> | <a href="#">Security Documentation</a></p>
-        <p><a href="mailto:matt@vulnautai.com">enterprise@vulnautai.com</a> | Confidential inquiries welcome</p>
-    </footer>
+  </footer>
+  <script src="app.js" defer></script>
 </body>
 </html>
